@@ -10,6 +10,20 @@ full blockchain service catalogue (contracts & audits, DeFi, native mobile,
 wallets & custody, tokenization/RWA, infrastructure, ZK/L2, advisory) with
 "Decentralized Protocol Engineering" as the flagship specialty.
 
+## Deploy (GitHub Pages)
+
+The site is served by GitHub Pages from the `main` branch of
+`github.com/JorgeGreek/apexblock` (root folder, `CNAME` = apexblock.tech).
+Every push to `main` republishes within a minute:
+
+```bash
+git add -A && git commit -m "Update site" && git push
+```
+
+DNS lives in Papaki: four `A` records on `apexblock.tech` to GitHub Pages
+(185.199.108-111.153) and `www` as a CNAME to `jorgegreek.github.io`.
+The `docs/` folder (internal PDFs and plans) is git-ignored and never published.
+
 ## Local preview
 
 ```bash
