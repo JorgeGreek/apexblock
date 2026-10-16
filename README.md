@@ -5,7 +5,7 @@ cyan → violet → magenta palette, animated decentralized mesh (canvas), orbit
 hero visual, bento services grid with 3D tilt + spotlight cards, rotating
 headline, scroll-driven reveals. Static site, no build step.
 
-Compared with `../apexblock-native-v1` (the earlier mobile-native version, kept for reference), this one presents the
+Compared with `~/Desktop/apexblock-native-v1` (the earlier mobile-native version, kept for reference), this one presents the
 full blockchain service catalogue (contracts & audits, DeFi, native mobile,
 wallets & custody, tokenization/RWA, infrastructure, ZK/L2, advisory) with
 "Decentralized Protocol Engineering" as the flagship specialty.
@@ -27,7 +27,7 @@ The `docs/` folder (internal PDFs and plans) is git-ignored and never published.
 ## Local preview
 
 ```bash
-python3 -m http.server 8934 --directory /Users/jorge/Desktop/apexblock
+python3 -m http.server 8934 --directory /Users/jorge/AndroidStudioProjects/ApexBlock/web
 ```
 
 ## Languages (EN / ES / EL)

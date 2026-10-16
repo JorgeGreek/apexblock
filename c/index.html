@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apex Block · Card</title>
+  <meta name="description" content="Apex Block engineer card: save the contact, book 30 minutes, claim your on-chain proof of meeting." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#05030E" />
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#05030E; --bg-card:rgba(255,255,255,.035); --bg-card-solid:#0E0A1C; --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+      --text:#F3F1FA; --text-2:#B9B4CC; --text-3:#8E88A6; --cyan:#22D3EE; --violet:#A78BFA; --magenta:#F472B6; --lime:#A3E635;
+      --holo:linear-gradient(90deg,#22D3EE 0%,#A78BFA 45%,#F472B6 100%);
+      --font-display:'Unbounded','Manrope',sans-serif; --font-body:'Manrope',sans-serif; --font-mono:'JetBrains Mono',ui-monospace,monospace;
+    }
+    * { box-sizing:border-box; }
+    html,body { margin:0; background:var(--bg); color:var(--text); font-family:var(--font-body); -webkit-font-smoothing:antialiased; }
+    body { min-height:100svh; display:flex; justify-content:center; padding:24px 16px 48px; position:relative; overflow-x:hidden; }
+    body::before { content:""; position:fixed; inset:-20%; background:radial-gradient(60% 40% at 20% 10%, rgba(34,211,238,.14), transparent 60%), radial-gradient(50% 40% at 90% 80%, rgba(244,114,182,.12), transparent 60%), radial-gradient(40% 40% at 60% 40%, rgba(167,139,250,.10), transparent 60%); pointer-events:none; z-index:-1; }
+    main { width:100%; max-width:440px; display:flex; flex-direction:column; gap:14px; }
+    .mono { font-family:var(--font-mono); }
+    .eyebrow { font-family:var(--font-mono); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text-3); }
+    .top { display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:600; font-size:.95rem; color:var(--text); text-decoration:none; }
+    .brand img { width:26px; height:26px; }
+    .lang { display:flex; gap:4px; }
+    .lang button { background:none; border:1px solid transparent; color:var(--text-3); font:700 .68rem var(--font-mono); letter-spacing:.06em; padding:5px 8px; border-radius:999px; cursor:pointer; }
+    .lang button[aria-pressed="true"] { color:var(--text); border-color:var(--line-strong); background:var(--bg-card); }
+    .card { background:var(--bg-card); border:1px solid var(--line); border-radius:22px; padding:22px; backdrop-filter:blur(10px); }
+    .profile { display:flex; gap:16px; align-items:center; }
+    .avatar { width:72px; height:72px; border-radius:50%; flex:none; padding:2px; background:var(--holo); }
+    .avatar > div { width:100%; height:100%; border-radius:50%; background:var(--bg-card-solid); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:1.5rem; background-clip:padding-box; overflow:hidden; }
+    .avatar img { width:100%; height:100%; object-fit:cover; }
+    h1 { font-family:var(--font-display); font-weight:600; font-size:1.45rem; margin:0 0 4px; letter-spacing:-.01em; }
+    .role { color:var(--text-2); font-size:.92rem; margin:0; }
+    .serial { margin-top:14px; display:flex; justify-content:space-between; align-items:center; color:var(--text-3); font-size:.68rem; }
+    .serial .ens { background:var(--holo); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; }
+    .actions { display:grid; gap:10px; }
+    .btn { display:flex; align-items:center; justify-content:center; gap:10px; padding:15px 20px; border-radius:999px; font-weight:700; font-size:.95rem; text-decoration:none; border:1px solid var(--line-strong); color:var(--text); background:var(--bg-card); cursor:pointer; font-family:var(--font-body); transition:transform .2s, box-shadow .2s; }
+    .btn:hover { transform:translateY(-1px); }
+    .btn-primary { background:var(--holo); border:none; color:#07040F; box-shadow:0 10px 30px rgba(167,139,250,.25); }
+    .btn svg { width:18px; height:18px; flex:none; }
+    .links { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; }
+    .links a { color:var(--text-3); font-size:.8rem; text-decoration:none; font-family:var(--font-mono); letter-spacing:.04em; }
+    .links a:hover { color:var(--text); }
+    .claim h2 { font-family:var(--font-display); font-weight:600; font-size:1.05rem; margin:6px 0 6px; }
+    .claim p { color:var(--text-2); font-size:.88rem; line-height:1.55; margin:0 0 14px; }
+    .field { display:flex; gap:8px; }
+    .field input { flex:1; min-width:0; background:#0A0716; border:1px solid var(--line-strong); color:var(--text); border-radius:14px; padding:13px 14px; font:500 .9rem var(--font-mono); outline:none; }
+    .field input:focus { border-color:var(--violet); box-shadow:0 0 0 3px rgba(167,139,250,.2); }
+    .field .btn { padding:13px 16px; }
+    .hint { display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:.75rem; color:var(--text-3); }
+    .hint button { background:none; border:none; color:var(--cyan); font:600 .75rem var(--font-body); cursor:pointer; padding:0; }
+    .status { margin-top:12px; font-size:.85rem; line-height:1.5; display:none; padding:12px 14px; border-radius:14px; border:1px solid var(--line); background:#0A0716; }
+    .status.show { display:block; }
+    .status.ok { border-color:rgba(163,230,53,.4); }
+    .status.err { border-color:rgba(244,114,182,.5); }
+    .status a { color:var(--cyan); word-break:break-all; }
+    .counter { display:flex; align-items:center; gap:10px; justify-content:center; color:var(--text-3); font-size:.78rem; }
+    .counter b { font-family:var(--font-display); color:var(--text); font-size:1rem; }
+    .dot { width:7px; height:7px; border-radius:50%; background:var(--lime); box-shadow:0 0 12px var(--lime); }
+    .demo { display:flex; gap:14px; align-items:center; text-decoration:none; color:var(--text); }
+    .demo .thumb { width:84px; height:56px; border-radius:12px; flex:none; background:linear-gradient(135deg,#0E0A1C,#1a1230); border:1px solid var(--line-strong); display:flex; align-items:center; justify-content:center; }
+    .demo .thumb svg { width:22px; height:22px; }
+    .demo small { display:block; color:var(--text-3); font-size:.78rem; margin-top:2px; }
+    footer { text-align:center; color:var(--text-3); font-size:.72rem; margin-top:8px; }
+    .invalid { text-align:center; padding:40px 20px; }
+    @media (prefers-reduced-motion: reduce) { .btn { transition:none; } }
+  </style>
+</head>
+<body>
+<main id="app">
+  <div class="top">
+    <a class="brand" href="/"><img src="../images/logo.svg" alt="" /> Apex Block</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" aria-pressed="true">EN</button><button data-lang="es">ES</button><button data-lang="el">ΕΛ</button>
+    </div>
+  </div>
+
+  <section class="card">
+    <div class="profile">
+      <div class="avatar"><div id="avatar">J</div></div>
+      <div>
+        <div class="eyebrow" data-t="eyebrow">Decentralized Engineering Studio</div>
+        <h1 id="name">Jorge Tsitsaris Ripolles</h1>
+        <p class="role" id="role">Founder</p>
+      </div>
+    </div>
+    <div class="serial mono"><span id="serial">// CARD #0000</span><span class="ens">apexblock.eth</span></div>
+  </section>
+
+  <div class="actions">
+    <a class="btn btn-primary" id="book" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+      <span data-t="book">Book 30 min with me</span>
+    </a>
+    <button class="btn" id="vcard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <span data-t="save">Save contact</span>
+    </button>
+    <a class="btn" id="chat" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12z"/></svg>
+      <span data-t="chat">Message on Telegram</span>
+    </a>
+  </div>
+
+  <div class="links" id="links"></div>
+
+  <section class="card claim">
+    <div class="eyebrow">// PROOF OF MEETING</div>
+    <h2 data-t="claimTitle">Claim your on‑chain proof</h2>
+    <p data-t="claimText">We just met. Enter your ENS or address and we attest it on Base via EAS: no name, no email, only your wallet and today's event. Gas is on us.</p>
+    <form class="field" id="claimForm">
+      <input id="recipient" placeholder="vitalik.eth or 0x…" autocomplete="off" spellcheck="false" inputmode="text" />
+      <button class="btn btn-primary" type="submit" data-t="claim">Claim</button>
+    </form>
+    <div class="hint">
+      <span data-t="noWallet">No wallet? Any ENS or 0x address works.</span>
+      <button type="button" id="useWallet" data-t="useWallet">Use my wallet</button>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <div class="counter"><span class="dot"></span><span><b id="count">—</b> <span data-t="counter">verified meetings on Base</span></span></div>
+
+  <a class="card demo" id="demoLink" href="/#work">
+    <div class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2"><path d="M8 5v14l11-7z"/></svg></div>
+    <div><strong data-t="demoTitle">Watch the 60‑second demo</strong><small data-t="demoText">Biometric signing from the Secure Enclave. The key never leaves the chip.</small></div>
+  </a>
+
+  <footer class="mono">BUILT DECENTRALIZED. · <a href="/" style="color:inherit">apexblock.tech</a></footer>
+</main>
+
+<script>
+(function () {
+  // ---------- CONFIG ----------
+  // Worker de atestación (Cloudflare). Mientras sea el placeholder, el botón Claim muestra una simulación.
+  var ATTEST_ENDPOINT = 'PASTE_YOUR_ATTEST_WORKER_URL_HERE';   // p. ej. https://attest.apexblock.tech
+  var EASSCAN = 'https://base.easscan.org/attestation/view/';
+  // Miembros del equipo y rangos de serie que les pertenecen. Las series 1–100 son de Jorge, etc.
+  var MEMBERS = [
+    { id: 'jorge', range: [1, 100], name: 'Jorge Tsitsaris Ripolles', role: 'Founder', email: 'hello@apexblock.tech',
+      phone: '', photo: '', cal: 'https://cal.com/apexblock/30min', telegram: 'https://t.me/apexblock',
+      links: { GitHub: 'https://github.com/JorgeGreek', X: 'https://x.com/apexblock', LinkedIn: 'https://www.linkedin.com/company/apexblock' } }
+    // { id: 'nombre', range: [101, 150], ... }
+  ];
+  var I18N = {
+    en: {},
+    es: { eyebrow: 'Estudio de Ingeniería Descentralizada', book: 'Reserva 30 min conmigo', save: 'Guardar contacto', chat: 'Escríbeme por Telegram',
+          claimTitle: 'Reclama tu prueba on‑chain', claimText: 'Acabamos de conocernos. Escribe tu ENS o dirección y lo atestamos en Base con EAS: sin nombre ni email, solo tu wallet y el evento de hoy. El gas lo pagamos nosotros.',
+          claim: 'Reclamar', noWallet: '¿Sin wallet? Vale cualquier ENS o dirección 0x.', useWallet: 'Usar mi wallet', counter: 'encuentros verificados en Base',
+          demoTitle: 'Mira la demo de 60 segundos', demoText: 'Firma biométrica desde el Secure Enclave. La clave nunca sale del chip.',
+          invalid: 'Esta tarjeta no es válida o ha sido revocada.', working: 'Emitiendo la atestación en Base…', ok: 'Hecho. Tu prueba de encuentro está en Base:', err: 'No se pudo emitir. Inténtalo de nuevo o escríbeme.', sim: 'Modo demostración (sin Worker configurado). Se emitiría una atestación para', bad: 'Introduce un ENS o una dirección 0x válida.' },
+    el: { eyebrow: 'Στούντιο Αποκεντρωμένης Μηχανικής', book: 'Κλείσε 30 λεπτά μαζί μου', save: 'Αποθήκευση επαφής', chat: 'Μήνυμα στο Telegram',
+          claimTitle: 'Διεκδίκησε την on‑chain απόδειξη', claimText: 'Μόλις γνωριστήκαμε. Γράψε το ENS ή τη διεύθυνσή σου και το πιστοποιούμε στο Base μέσω EAS: χωρίς όνομα ή email, μόνο το πορτοφόλι σου και η σημερινή εκδήλωση. Το gas το πληρώνουμε εμείς.',
+          claim: 'Διεκδίκηση', noWallet: 'Χωρίς πορτοφόλι; Αρκεί ένα ENS ή μια διεύθυνση 0x.', useWallet: 'Χρήση πορτοφολιού', counter: 'επιβεβαιωμένες συναντήσεις στο Base',
+          demoTitle: 'Δες το demo των 60 δευτερολέπτων', demoText: 'Βιομετρική υπογραφή από το Secure Enclave. Το κλειδί δεν φεύγει ποτέ από το chip.',
+          invalid: 'Η κάρτα δεν είναι έγκυρη ή έχει ανακληθεί.', working: 'Έκδοση πιστοποίησης στο Base…', ok: 'Έγινε. Η απόδειξη συνάντησης είναι στο Base:', err: 'Αποτυχία έκδοσης. Δοκίμασε ξανά ή γράψε μου.', sim: 'Λειτουργία επίδειξης (χωρίς Worker). Θα εκδιδόταν πιστοποίηση για', bad: 'Δώσε έγκυρο ENS ή διεύθυνση 0x.' }
+  };
+  var EN = { invalid: 'This card is not valid or has been revoked.', working: 'Issuing the attestation on Base…', ok: 'Done. Your proof of meeting is on Base:', err: 'Could not issue it. Try again or message me.', sim: 'Demo mode (no Worker configured). An attestation would be issued for', bad: 'Enter a valid ENS name or 0x address.' };
+  var lang = 'en';
+  try { lang = localStorage.getItem('apx-lang') || lang; } catch (e) {}
+  function t(k) { return (I18N[lang] && I18N[lang][k]) || EN[k] || null; }
+  function applyLang(l) {
+    lang = I18N[l] ? l : 'en';
+    try { localStorage.setItem('apx-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-t]').forEach(function (el) { var v = t(el.getAttribute('data-t')); if (v) el.textContent = v; else if (lang === 'en' && el.dataset.en) el.textContent = el.dataset.en; });
+    document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+  }
+  document.querySelectorAll('[data-t]').forEach(function (el) { el.dataset.en = el.textContent; });
+  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { applyLang(b.dataset.lang); }); });
+
+  // ---------- SERIE Y MIEMBRO ----------
+  var q = new URLSearchParams(location.search);
+  var serial = parseInt(q.get('i') || '0', 10), sig = q.get('s') || '', ev = q.get('ev') || '';
+  var member = MEMBERS.filter(function (m) { return serial >= m.range[0] && serial <= m.range[1]; })[0] || MEMBERS[0];
+  var valid = serial > 0 && /^[a-z2-7]{8}$/.test(sig);   // la validez real la decide el Worker; esto solo filtra URLs rotas
+
+  document.getElementById('name').textContent = member.name;
+  document.getElementById('role').textContent = member.role;
+  document.getElementById('serial').textContent = '// CARD #' + String(serial || 0).padStart(4, '0') + (ev ? ' · ' + ev.toUpperCase() : '');
+  var av = document.getElementById('avatar');
+  if (member.photo) av.innerHTML = '<img src="' + member.photo + '" alt="' + member.name + '" />'; else av.textContent = member.name.charAt(0);
+  document.getElementById('book').href = member.cal + (member.cal.indexOf('?') < 0 ? '?' : '&') + 'utm_source=card&utm_content=' + serial + (ev ? '&utm_campaign=' + encodeURIComponent(ev) : '');
+  document.getElementById('chat').href = member.telegram;
+  var links = document.getElementById('links');
+  Object.keys(member.links).forEach(function (k) { var a = document.createElement('a'); a.href = member.links[k]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = k; links.appendChild(a); });
+
+  // ---------- vCARD ----------
+  document.getElementById('vcard').addEventListener('click', function () {
+    var v = ['BEGIN:VCARD', 'VERSION:3.0', 'N:;' + member.name + ';;;', 'FN:' + member.name, 'ORG:Apex Block', 'TITLE:' + member.role.replace(/·/g, '-'),
+             'EMAIL;TYPE=INTERNET,WORK:' + member.email, member.phone ? 'TEL;TYPE=CELL:' + member.phone : null, 'URL:https://apexblock.tech',
+             'NOTE:apexblock.eth · Built decentralized. Card #' + serial, 'END:VCARD'].filter(Boolean).join('\r\n');
+    var blob = new Blob([v], { type: 'text/vcard;charset=utf-8' }), url = URL.createObjectURL(blob), a = document.createElement('a');
+    a.href = url; a.download = 'apexblock-' + member.id + '.vcf'; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 1000);
+    track('vcard');
+  });
+
+  // ---------- CLAIM ----------
+  var status = document.getElementById('status'), input = document.getElementById('recipient');
+  function show(kind, html) { status.className = 'status show ' + kind; status.innerHTML = html; }
+  document.getElementById('useWallet').addEventListener('click', async function () {
+    if (!window.ethereum) { input.focus(); return; }
+    try { var acc = await window.ethereum.request({ method: 'eth_requestAccounts' }); if (acc && acc[0]) input.value = acc[0]; } catch (e) {}
+  });
+  document.getElementById('claimForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var r = input.value.trim();
+    if (!/^0x[0-9a-fA-F]{40}$/.test(r) && !/^[a-z0-9-]+(\.[a-z0-9-]+)*\.eth$/i.test(r)) { show('err', t('bad')); return; }
+    if (ATTEST_ENDPOINT.indexOf('PASTE_') === 0) { show('ok', t('sim') + ' <span class="mono">' + r + '</span> · ' + (ev || 'no-event') + ' · card #' + serial); return; }
+    show('', t('working'));
+    try {
+      var res = await fetch(ATTEST_ENDPOINT + '/claim', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ i: serial, s: sig, recipient: r, ev: ev, lang: lang }) });
+      var data = await res.json();
+      if (!res.ok || !data.uid) throw new Error(data.error || res.status);
+      show('ok', t('ok') + '<br><a href="' + EASSCAN + data.uid + '" target="_blank" rel="noopener">' + data.uid.slice(0, 18) + '…</a>');
+      loadCount();
+    } catch (err) { show('err', t('err') + ' <span class="mono">(' + String(err.message || err).slice(0, 60) + ')</span>'); }
+  });
+  function loadCount() {
+    if (ATTEST_ENDPOINT.indexOf('PASTE_') === 0) { document.getElementById('count').textContent = '0'; return; }
+    fetch(ATTEST_ENDPOINT + '/stats').then(function (r) { return r.json(); }).then(function (d) { document.getElementById('count').textContent = d.total; }).catch(function () {});
+  }
+  function track(action) { // sin cookies: un ping anónimo al Worker con serie, evento y acción
+    if (ATTEST_ENDPOINT.indexOf('PASTE_') === 0) return;
+    try { navigator.sendBeacon(ATTEST_ENDPOINT + '/hit', JSON.stringify({ i: serial, ev: ev, a: action })); } catch (e) {}
+  }
+
+  if (!valid) {
+    document.querySelector('.claim').innerHTML = '<div class="invalid"><div class="eyebrow">// CARD</div><p style="color:var(--text-2)">' + (t('invalid')) + '</p></div>';
+  }
+  applyLang(lang);
+  loadCount();
+  track('view');
+})();
+</script>
+</body>
+</html>
