@@ -103,10 +103,6 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
       <span data-t="save">Save contact</span>
     </button>
-    <a class="btn" id="chat" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12z"/></svg>
-      <span data-t="chat">Message on Telegram</span>
-    </a>
   </div>
 
   <div class="links" id="links"></div>
@@ -145,18 +141,18 @@
   // Miembros del equipo y rangos de serie que les pertenecen. Las series 1–100 son de Jorge, etc.
   var MEMBERS = [
     { id: 'jorge', range: [1, 100], name: 'Jorge Tsitsaris Ripolles', role: 'Founder', email: 'hello@apexblock.tech',
-      phone: '', photo: '', cal: 'https://cal.com/apexblock/30min', telegram: 'https://t.me/apexblock',
+      phone: '', photo: '', cal: 'https://cal.com/apexblock/30min',
       links: { GitHub: 'https://github.com/JorgeGreek', X: 'https://x.com/apexblock', LinkedIn: 'https://www.linkedin.com/company/apexblock' } }
     // { id: 'nombre', range: [101, 150], ... }
   ];
   var I18N = {
     en: {},
-    es: { eyebrow: 'Estudio de Ingeniería Descentralizada', book: 'Reserva 30 min conmigo', save: 'Guardar contacto', chat: 'Escríbeme por Telegram',
+    es: { eyebrow: 'Estudio de Ingeniería Descentralizada', book: 'Reserva 30 min conmigo', save: 'Guardar contacto',
           claimTitle: 'Reclama tu prueba on‑chain', claimText: 'Acabamos de conocernos. Escribe tu ENS o dirección y lo atestamos en Base con EAS: sin nombre ni email, solo tu wallet y el evento de hoy. El gas lo pagamos nosotros.',
           claim: 'Reclamar', noWallet: '¿Sin wallet? Vale cualquier ENS o dirección 0x.', useWallet: 'Usar mi wallet', counter: 'encuentros verificados en Base',
           demoTitle: 'Mira la demo de 60 segundos', demoText: 'Firma biométrica desde el Secure Enclave. La clave nunca sale del chip.',
           invalid: 'Esta tarjeta no es válida o ha sido revocada.', working: 'Emitiendo la atestación en Base…', ok: 'Hecho. Tu prueba de encuentro está en Base:', err: 'No se pudo emitir. Inténtalo de nuevo o escríbeme.', sim: 'Modo demostración (sin Worker configurado). Se emitiría una atestación para', bad: 'Introduce un ENS o una dirección 0x válida.' },
-    el: { eyebrow: 'Στούντιο Αποκεντρωμένης Μηχανικής', book: 'Κλείσε 30 λεπτά μαζί μου', save: 'Αποθήκευση επαφής', chat: 'Μήνυμα στο Telegram',
+    el: { eyebrow: 'Στούντιο Αποκεντρωμένης Μηχανικής', book: 'Κλείσε 30 λεπτά μαζί μου', save: 'Αποθήκευση επαφής',
           claimTitle: 'Διεκδίκησε την on‑chain απόδειξη', claimText: 'Μόλις γνωριστήκαμε. Γράψε το ENS ή τη διεύθυνσή σου και το πιστοποιούμε στο Base μέσω EAS: χωρίς όνομα ή email, μόνο το πορτοφόλι σου και η σημερινή εκδήλωση. Το gas το πληρώνουμε εμείς.',
           claim: 'Διεκδίκηση', noWallet: 'Χωρίς πορτοφόλι; Αρκεί ένα ENS ή μια διεύθυνση 0x.', useWallet: 'Χρήση πορτοφολιού', counter: 'επιβεβαιωμένες συναντήσεις στο Base',
           demoTitle: 'Δες το demo των 60 δευτερολέπτων', demoText: 'Βιομετρική υπογραφή από το Secure Enclave. Το κλειδί δεν φεύγει ποτέ από το chip.',
@@ -188,7 +184,6 @@
   var av = document.getElementById('avatar');
   if (member.photo) av.innerHTML = '<img src="' + member.photo + '" alt="' + member.name + '" />'; else av.textContent = member.name.charAt(0);
   document.getElementById('book').href = member.cal + (member.cal.indexOf('?') < 0 ? '?' : '&') + 'utm_source=card&utm_content=' + serial + (ev ? '&utm_campaign=' + encodeURIComponent(ev) : '');
-  document.getElementById('chat').href = member.telegram;
   var links = document.getElementById('links');
   Object.keys(member.links).forEach(function (k) { var a = document.createElement('a'); a.href = member.links[k]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = k; links.appendChild(a); });
 
