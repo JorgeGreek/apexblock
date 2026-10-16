@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">Apex Block — Decentralized Engineering Studio</title>
+  <meta name="description" data-i18n-attr="content:meta.desc" content="Apex Block is a full-spectrum blockchain engineering studio: smart contracts and audits, DeFi protocols, native mobile dApps, wallets and custody, tokenization, infrastructure and ZK rollups. Our specialty is everything decentralized." />
+  <meta name="keywords" content="Apex Block, blockchain development, smart contracts, DeFi, dApp, Web3, decentralized, wallet, tokenization, RWA, zero knowledge, rollups, Solidity, Rust, Swift, Kotlin" />
+  <meta property="og:title" content="Apex Block — Decentralized Engineering Studio" />
+  <meta property="og:description" content="Full-spectrum blockchain engineering. Our specialty: everything decentralized." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://apexblock.tech/" />
+  <meta name="theme-color" content="#05030E" />
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <script src="i18n.js?v=1"></script>
+  <script src="a11y-widget.js?v=1"></script>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ========== NAV ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="images/logo.svg" alt="Apex Block logo" width="40" height="40" />
+        <span>Apex<b>Block</b></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services" class="nav-link" data-i18n="nav.services">Services</a></li>
+        <li><a href="#edge" class="nav-link" data-i18n="nav.edge">Our Edge</a></li>
+        <li><a href="#work" class="nav-link" data-i18n="nav.work">Work</a></li>
+        <li><a href="#process" class="nav-link" data-i18n="nav.process">Process</a></li>
+        <li><a href="#stack" class="nav-link" data-i18n="nav.stack">Stack</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.group">
+        <button type="button" class="lang-btn" data-set-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-set-lang="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+        <button type="button" class="lang-btn" data-set-lang="el" lang="el" aria-label="Ελληνικά" aria-pressed="false">ΕΛ</button>
+      </div>
+      <a href="#contact" class="btn btn-neon nav-cta"><span data-i18n="nav.cta">Start a Project</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" data-i18n-attr="aria-label:nav.toggle" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <canvas id="meshCanvas" class="mesh-canvas" aria-hidden="true"></canvas>
+    <div class="aurora aurora-1" aria-hidden="true"></div>
+    <div class="aurora aurora-2" aria-hidden="true"></div>
+    <div class="aurora aurora-3" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy" data-reveal>
+        <div class="hero-badge"><span class="badge-pulse"></span><span class="mono">BLOCK #<span id="blockTicker">21,904,113</span> · MAINNET · LIVE</span></div>
+        <h1 class="hero-title">
+          <span class="line" data-i18n="hero.l1">We engineer</span>
+          <span class="line rotator-wrap"><span class="rotator" id="rotator" aria-live="polite" data-i18n="hero.rot0">decentralized protocols</span></span>
+          <span class="line" data-i18n="hero.l3">that <span class="holo">outlast hype.</span></span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero.sub">
+          Full-spectrum blockchain engineering: smart contracts, DeFi protocols, wallets, infrastructure, tokenization and native mobile dApps.
+          One obsession runs through everything we ship: <strong>real decentralization</strong>, verified on-chain, not promised in a deck.
+        </p>
+        <div class="hero-ctas">
+          <a href="#services" class="btn btn-neon btn-lg"><span data-i18n="hero.cta1">Explore Capabilities <i class="fas fa-arrow-right"></i></span></a>
+          <a href="#work" class="btn btn-glass btn-lg" data-i18n="hero.cta2"><i class="fas fa-cube"></i> View Case Studies</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num"><span data-count="40">0</span>+</span><span class="stat-lbl" data-i18n="hero.s1">Contracts Shipped</span></div>
+          <div class="stat"><span class="stat-num"><span data-count="12">0</span>+</span><span class="stat-lbl" data-i18n="hero.s2">Audited Protocols</span></div>
+          <div class="stat"><span class="stat-num"><span data-count="8">0</span>+</span><span class="stat-lbl" data-i18n="hero.s3">Chains Supported</span></div>
+          <div class="stat"><span class="stat-num"><span data-count="16">0</span></span><span class="stat-lbl" data-i18n="hero.s4">Years Engineering</span></div>
+        </div>
+      </div>
+
+      <!-- Orbital core visual -->
+      <div class="hero-visual" data-reveal data-delay="150">
+        <div class="orbital" id="orbital">
+          <div class="orbit orbit-1"><span class="node n-eth" title="Ethereum"><i class="fab fa-ethereum"></i></span><span class="node n-sol" title="Solana"><i class="fas fa-sun"></i></span></div>
+          <div class="orbit orbit-2"><span class="node" title="Base">B</span><span class="node" title="Arbitrum">A</span><span class="node" title="Polygon">P</span></div>
+          <div class="orbit orbit-3"><span class="node" title="Optimism">O</span><span class="node" title="Avalanche">X</span></div>
+          <div class="core">
+            <div class="core-ring"></div>
+            <img src="images/logo.svg" alt="" width="72" height="72" />
+            <span class="core-lbl mono" data-i18n="hero.core">CONSENSUS</span>
+          </div>
+          <div class="hud hud-1 mono"><span class="hud-k">TPS</span><span class="hud-v" id="hudTps">4,812</span></div>
+          <div class="hud hud-2 mono"><span class="hud-k" data-i18n="hero.hud2">FINALITY</span><span class="hud-v">0.8s</span></div>
+          <div class="hud hud-3 mono"><span class="hud-k" data-i18n="hero.hud3">NODES</span><span class="hud-v" id="hudNodes">1,204</span></div>
+          <div class="hud hud-4 mono"><span class="hud-k" data-i18n="hero.hud4">PROOF</span><span class="hud-v">zk-SNARK ✓</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll mono"><span data-i18n="hero.scroll">SCROLL</span><span class="scroll-bar"></span></div>
+  </section>
+
+  <!-- ========== TICKER ========== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Ethereum</span><span>Solana</span><span>Base</span><span>Arbitrum</span><span>Optimism</span><span>Polygon</span><span>zkSync</span><span>Starknet</span><span>Avalanche</span><span>Cosmos</span><span>Solidity</span><span>Rust</span><span>Move</span><span>Swift</span><span>Kotlin</span><span>Foundry</span><span>Anchor</span><span>WalletConnect</span><span>The Graph</span><span>IPFS</span>
+      <span>Ethereum</span><span>Solana</span><span>Base</span><span>Arbitrum</span><span>Optimism</span><span>Polygon</span><span>zkSync</span><span>Starknet</span><span>Avalanche</span><span>Cosmos</span><span>Solidity</span><span>Rust</span><span>Move</span><span>Swift</span><span>Kotlin</span><span>Foundry</span><span>Anchor</span><span>WalletConnect</span><span>The Graph</span><span>IPFS</span>
+    </div>
+  </div>
+
+  <!-- ========== SERVICES (BENTO) ========== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow mono" data-i18n="svc.eyebrow">// CAPABILITIES</span>
+        <h2 data-i18n="svc.title">Every layer of the <span class="holo">blockchain stack.</span></h2>
+        <p data-i18n="svc.sub">From the EVM bytecode to the pixel on a phone screen. Nine disciplines, one standard: production-grade, audited, decentralized by design.</p>
+      </div>
+
+      <div class="bento">
+        <article class="card card-xl spotlight tilt" data-reveal>
+          <div class="card-tag mono" data-i18n="svc.tagSpecialty"><i class="fas fa-star"></i> OUR SPECIALTY</div>
+          <div class="card-icon"><i class="fas fa-circle-nodes"></i></div>
+          <h3 data-i18n="svc.1.t">Decentralized Protocol Engineering</h3>
+          <p data-i18n="svc.1.p">Trust-minimized systems where no single party, including us, can halt, censor or upgrade without consensus. We design the governance, the on-chain primitives and the economic incentives as one coherent machine.</p>
+          <ul class="card-list">
+            <li data-i18n="svc.1.f1"><i class="fas fa-check"></i> Permissionless architecture & governance design</li>
+            <li data-i18n="svc.1.f2"><i class="fas fa-check"></i> Tokenomics, incentive and attack-surface modelling</li>
+            <li data-i18n="svc.1.f3"><i class="fas fa-check"></i> Immutable or timelocked upgrade paths</li>
+            <li data-i18n="svc.1.f4"><i class="fas fa-check"></i> Decentralized sequencing, storage & oracles</li>
+          </ul>
+          <div class="card-viz" aria-hidden="true">
+            <svg viewBox="0 0 320 180" class="net-svg">
+              <g class="net-lines" stroke="url(#nl)" stroke-width="1" fill="none">
+                <defs><linearGradient id="nl" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#F472B6"/></linearGradient></defs>
+                <path d="M40 40 L160 90 L280 40 M40 140 L160 90 L280 140 M40 40 L40 140 M280 40 L280 140 M160 20 L160 90 L160 160 M40 40 L160 20 L280 40 M40 140 L160 160 L280 140"/>
+              </g>
+              <g class="net-nodes" fill="#0B0718" stroke="#A78BFA" stroke-width="2">
+                <circle cx="40" cy="40" r="7"/><circle cx="280" cy="40" r="7"/><circle cx="40" cy="140" r="7"/><circle cx="280" cy="140" r="7"/><circle cx="160" cy="20" r="7"/><circle cx="160" cy="160" r="7"/>
+                <circle cx="160" cy="90" r="11" stroke="#22D3EE"/>
+              </g>
+              <circle class="packet p1" r="3" fill="#F472B6"/><circle class="packet p2" r="3" fill="#22D3EE"/><circle class="packet p3" r="3" fill="#A3E635"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="card spotlight tilt" data-reveal data-delay="60">
+          <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+          <h3 data-i18n="svc.2.t">Smart Contracts & Audits</h3>
+          <p data-i18n="svc.2.p">Solidity, Rust and Move contracts written with formal invariants, fuzzed with Foundry and reviewed line by line before mainnet.</p>
+          <span class="card-foot mono">EVM · SOLANA · MOVE</span>
+        </article>
+
+        <article class="card spotlight tilt" data-reveal data-delay="120">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 data-i18n="svc.3.t">DeFi & dApp Protocols</h3>
+          <p data-i18n="svc.3.p">AMMs, lending markets, vaults, perps and staking systems with battle-tested math and MEV-aware execution.</p>
+          <span class="card-foot mono">AMM · LENDING · PERPS</span>
+        </article>
+
+        <article class="card spotlight tilt card-mobile" data-reveal data-delay="180">
+          <div class="card-tag mono" data-i18n="svc.tagNative"><i class="fas fa-mobile-screen"></i> NATIVE ONLY</div>
+          <div class="card-icon"><i class="fas fa-mobile-screen-button"></i></div>
+          <h3 data-i18n="svc.4.t">Native Mobile dApps</h3>
+          <p data-i18n="svc.4.p">SwiftUI and Jetpack Compose apps with hardware-backed keys, biometric signing and battery-aware RPC layers. No WebViews, no wrappers.</p>
+          <span class="card-foot mono">SWIFT · KOTLIN · SEED VAULT</span>
+        </article>
+
+        <article class="card spotlight tilt" data-reveal data-delay="240">
+          <div class="card-icon"><i class="fas fa-wallet"></i></div>
+          <h3 data-i18n="svc.5.t">Wallets & Custody</h3>
+          <p data-i18n="svc.5.p">Non-custodial wallets, MPC and multisig setups, account abstraction and WalletConnect integrations with zero friction.</p>
+          <span class="card-foot mono">MPC · ERC-4337 · MULTISIG</span>
+        </article>
+
+        <article class="card spotlight tilt" data-reveal data-delay="300">
+          <div class="card-icon"><i class="fas fa-coins"></i></div>
+          <h3 data-i18n="svc.6.t">Tokenization & RWA</h3>
+          <p data-i18n="svc.6.p">Token standards, compliant issuance flows, NFT infrastructure and real-world-asset rails built for regulators and users alike.</p>
+          <span class="card-foot mono">ERC-20 · ERC-721 · ERC-3643</span>
+        </article>
+
+        <article class="card spotlight tilt" data-reveal data-delay="360">
+          <div class="card-icon"><i class="fas fa-server"></i></div>
+          <h3 data-i18n="svc.7.t">Infrastructure & Indexing</h3>
+          <p data-i18n="svc.7.p">Validator and RPC nodes, subgraphs, custom indexers and event pipelines that keep your product fast at scale.</p>
+          <span class="card-foot mono">NODES · RPC · THE GRAPH</span>
+        </article>
+
+        <article class="card spotlight tilt" data-reveal data-delay="420">
+          <div class="card-icon"><i class="fas fa-eye-slash"></i></div>
+          <h3 data-i18n="svc.8.t">ZK, L2 & Interoperability</h3>
+          <p data-i18n="svc.8.p">Zero-knowledge circuits, rollup deployments and cross-chain messaging that preserve security while cutting costs.</p>
+          <span class="card-foot mono">ZK-SNARK · ROLLUPS · BRIDGES</span>
+        </article>
+
+        <article class="card spotlight tilt" data-reveal data-delay="480">
+          <div class="card-icon"><i class="fas fa-compass-drafting"></i></div>
+          <h3 data-i18n="svc.9.t">Web3 Architecture & Advisory</h3>
+          <p data-i18n="svc.9.p">Chain selection, threat modelling, decentralization roadmaps and technical due diligence for founders and CTOs.</p>
+          <span class="card-foot mono" data-i18n="svc.9.foot">STRATEGY · AUDIT · ROADMAP</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OUR EDGE ========== -->
+  <section class="edge" id="edge">
+    <div class="container edge-grid">
+      <div class="edge-visual" data-reveal>
+        <div class="dial">
+          <svg viewBox="0 0 300 300" class="dial-svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset=".5" stop-color="#A78BFA"/><stop offset="1" stop-color="#F472B6"/></linearGradient>
+            </defs>
+            <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="14"/>
+            <circle class="dial-arc" cx="150" cy="150" r="120" fill="none" stroke="url(#dg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="754" stroke-dashoffset="754" transform="rotate(-90 150 150)"/>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="rgba(255,255,255,.08)" stroke-dasharray="2 6"/>
+          </svg>
+          <div class="dial-center">
+            <span class="dial-num"><span data-count="100">0</span>%</span>
+            <span class="dial-lbl mono" data-i18n="edge.dial">DECENTRALIZED</span>
+          </div>
+          <div class="dial-chip c1 mono" data-i18n="edge.c1">0 admin keys</div>
+          <div class="dial-chip c2 mono" data-i18n="edge.c2">0 custodians</div>
+          <div class="dial-chip c3 mono" data-i18n="edge.c3">0 single points of failure</div>
+        </div>
+      </div>
+      <div class="edge-copy" data-reveal data-delay="120">
+        <span class="eyebrow mono" data-i18n="edge.eyebrow">// OUR EDGE</span>
+        <h2 data-i18n="edge.title">Decentralized is not a feature. <span class="holo">It is the architecture.</span></h2>
+        <p data-i18n="edge.p">Most "Web3" products are a database with a token. We build the opposite: systems whose security comes from consensus, cryptography and open verification, so your users never have to trust you, and neither do your investors.</p>
+        <div class="edge-points">
+          <div class="point"><span class="point-i"><i class="fas fa-lock-open"></i></span><div><h4 data-i18n="edge.p1t">Trust-minimized by default</h4><p data-i18n="edge.p1p">Keys in hardware, upgrades behind timelocks and governance, data verifiable by anyone.</p></div></div>
+          <div class="point"><span class="point-i"><i class="fas fa-shield-halved"></i></span><div><h4 data-i18n="edge.p2t">Audit-grade from day one</h4><p data-i18n="edge.p2p">Invariant tests, fuzzing and formal review are part of the sprint, not a line item at the end.</p></div></div>
+          <div class="point"><span class="point-i"><i class="fas fa-bolt"></i></span><div><h4 data-i18n="edge.p3t">Performance you can measure</h4><p data-i18n="edge.p3p">Gas budgets, finality targets and mobile frame times tracked per release.</p></div></div>
+          <div class="point"><span class="point-i"><i class="fas fa-code-branch"></i></span><div><h4 data-i18n="edge.p4t">Open and reproducible</h4><p data-i18n="edge.p4p">Verified source, deterministic builds and documentation your auditors will thank you for.</p></div></div>
+        </div>
+        <a href="#contact" class="btn btn-neon"><span data-i18n="edge.cta">Talk to an Engineer <i class="fas fa-arrow-right"></i></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WORK ========== -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow mono" data-i18n="work.eyebrow">// REFERENCE BUILDS</span>
+        <h2 data-i18n="work.title">Architectures we <span class="holo">put our name on.</span></h2>
+        <p data-i18n="work.sub">Foundational systems that show how we handle custody, liquidity and on-chain data at protocol grade.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-card spotlight" data-reveal>
+          <div class="work-media wm-1">
+            <div class="wm-phone"><div class="wm-screen"><span class="mono">VAULT</span><strong>2.4821 ETH</strong><div class="wm-bars"><i style="--h:60%"></i><i style="--h:85%"></i><i style="--h:45%"></i><i style="--h:95%"></i><i style="--h:70%"></i></div><em><i class="fas fa-fingerprint"></i> <span data-i18n="work.sign">Sign</span></em></div></div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag mono" data-i18n="work.1.tag">NON-CUSTODIAL WALLET</span>
+            <h3>Apex Wallet Core</h3>
+            <p data-i18n="work.1.p">Native iOS and Android wallet foundation with Secure Enclave / StrongBox keys, biometric signing and WalletConnect v2.</p>
+            <div class="work-meta mono"><span>SwiftUI</span><span>Kotlin</span><span>ERC-4337</span></div>
+          </div>
+        </article>
+        <article class="work-card spotlight" data-reveal data-delay="100">
+          <div class="work-media wm-2">
+            <div class="wm-chart"><svg viewBox="0 0 300 120" preserveAspectRatio="none"><defs><linearGradient id="wa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A78BFA" stop-opacity=".5"/><stop offset="1" stop-color="#A78BFA" stop-opacity="0"/></linearGradient></defs><path d="M0 90 L30 80 L60 86 L90 60 L120 66 L150 44 L180 52 L210 30 L240 38 L270 18 L300 24 L300 120 L0 120Z" fill="url(#wa)"/><path d="M0 90 L30 80 L60 86 L90 60 L120 66 L150 44 L180 52 L210 30 L240 38 L270 18 L300 24" fill="none" stroke="#C4B5FD" stroke-width="2"/></svg></div>
+            <div class="wm-rows mono"><span><b>SWAP</b> 0x91ab…4e2f</span><span><b>MINT</b> 0x3c07…a1d9</span><span><b>BURN</b> 0xf2e4…77b0</span></div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag mono" data-i18n="work.2.tag">DEFI PROTOCOL</span>
+            <h3>DeFi Mobile Terminal</h3>
+            <p data-i18n="work.2.p">Reactive dashboard and execution layer streaming contract events across EVM chains with batched, MEV-aware transactions.</p>
+            <div class="work-meta mono"><span>Multi-chain</span><span>WebSocket</span><span>Foundry</span></div>
+          </div>
+        </article>
+        <article class="work-card spotlight" data-reveal data-delay="200">
+          <div class="work-media wm-3">
+            <div class="wm-bridge"><span class="chain-a mono">L1</span><div class="beam"><i></i><i></i><i></i></div><span class="chain-b mono">L2</span></div>
+            <div class="wm-proof mono" data-i18n="work.proof"><i class="fas fa-check"></i> proof verified · 212 ms</div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag mono" data-i18n="work.3.tag">ZK SETTLEMENT</span>
+            <h3 data-i18n="work.3.t">Cross-chain Settlement Layer</h3>
+            <p data-i18n="work.3.p">Zero-knowledge verified messaging between an L1 and an app-specific rollup, with no trusted relayer in the path.</p>
+            <div class="work-meta mono"><span>zk-SNARK</span><span>Rust</span><span>Rollup</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow mono" data-i18n="pr.eyebrow">// THE PROTOCOL WAY</span>
+        <h2 data-i18n="pr.title">From threat model <span class="holo">to mainnet.</span></h2>
+        <p data-i18n="pr.sub">A delivery process designed for CTOs who need cryptographic certainty, predictable sprints and a clean audit trail.</p>
+      </div>
+      <div class="steps" id="steps">
+        <div class="steps-line"><span id="stepsFill"></span></div>
+        <div class="step" data-reveal><span class="step-n mono">01</span><div class="step-i"><i class="fas fa-diagram-project"></i></div><h3 data-i18n="pr.1t">Discovery & Threat Model</h3><p data-i18n="pr.1p">We map actors, assets and attack surfaces, choose the chain and define what must be decentralized from day one.</p></div>
+        <div class="step" data-reveal data-delay="100"><span class="step-n mono">02</span><div class="step-i"><i class="fas fa-pen-ruler"></i></div><h3 data-i18n="pr.2t">Architecture & Design</h3><p data-i18n="pr.2p">Contracts, off-chain services and client flows designed together, with governance and upgrade paths decided up front.</p></div>
+        <div class="step" data-reveal data-delay="200"><span class="step-n mono">03</span><div class="step-i"><i class="fas fa-code"></i></div><h3 data-i18n="pr.3t">Build & Verify</h3><p data-i18n="pr.3p">Agile sprints with invariant tests, fuzzing and testnet deployments every week, plus native clients where needed.</p></div>
+        <div class="step" data-reveal data-delay="300"><span class="step-n mono">04</span><div class="step-i"><i class="fas fa-rocket"></i></div><h3 data-i18n="pr.4t">Audit & Launch</h3><p data-i18n="pr.4p">External audit coordination, verified source, monitoring and a staged mainnet rollout with on-chain kill-switch policy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STACK ========== -->
+  <section class="stack" id="stack">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow mono" data-i18n="st.eyebrow">// ARSENAL</span>
+        <h2 data-i18n="st.title">Tools we <span class="holo">trust in production.</span></h2>
+      </div>
+      <div class="stack-grid" data-reveal>
+        <div class="stack-col"><h4 class="mono" data-i18n="st.c1">ON-CHAIN</h4><span>Solidity</span><span>Rust</span><span>Move</span><span>Foundry</span><span>Hardhat</span><span>Anchor</span><span>OpenZeppelin</span></div>
+        <div class="stack-col"><h4 class="mono" data-i18n="st.c2">CHAINS</h4><span>Ethereum</span><span>Solana</span><span>Base</span><span>Arbitrum</span><span>Optimism</span><span>Polygon</span><span>zkSync</span><span>Cosmos</span></div>
+        <div class="stack-col"><h4 class="mono" data-i18n="st.c3">MOBILE</h4><span>Swift</span><span>SwiftUI</span><span>Kotlin</span><span>Jetpack Compose</span><span>WalletConnect</span><span>Solana Mobile Stack</span></div>
+        <div class="stack-col"><h4 class="mono" data-i18n="st.c4">INFRA</h4><span>Geth / Reth</span><span>The Graph</span><span>IPFS</span><span>Chainlink</span><span>Tenderly</span><span>Kubernetes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <div class="cta-box" data-reveal>
+        <div class="cta-glow"></div>
+        <span class="eyebrow mono" data-i18n="cta.eyebrow">// READY?</span>
+        <h2 data-i18n="cta.title">Let's build something <span class="holo">nobody can switch off.</span></h2>
+        <p data-i18n="cta.sub">Tell us about your chain, your contracts and your users. An engineer replies within one business day.</p>
+        <div class="cta-btns">
+          <a href="#contact" class="btn btn-neon btn-lg"><span data-i18n="cta.main">Start Your Project <i class="fas fa-arrow-right"></i></span></a>
+          <a href="mailto:hello@apexblock.tech" class="btn btn-glass btn-lg"><i class="fas fa-envelope"></i> hello@apexblock.tech</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-side" data-reveal>
+        <span class="eyebrow mono" data-i18n="ct.eyebrow">// GET A QUOTE</span>
+        <h2 data-i18n="ct.title">Scope your <span class="holo">protocol.</span></h2>
+        <p data-i18n="ct.sub">A few details route you to the right engineer and get you a real estimate, not a sales call.</p>
+        <ul class="contact-list">
+          <li><i class="fas fa-envelope"></i><div><span class="mono" data-i18n="ct.email">EMAIL</span><a href="mailto:hello@apexblock.tech">hello@apexblock.tech</a></div></li>
+          <li><i class="fas fa-clock"></i><div><span class="mono" data-i18n="ct.resp">RESPONSE</span><b data-i18n="ct.respV">Within one business day</b></div></li>
+          <li><i class="fas fa-user-shield"></i><div><span class="mono" data-i18n="ct.conf">CONFIDENTIAL</span><b data-i18n="ct.confV">NDA before any technical deep-dive</b></div></li>
+        </ul>
+        <div class="terminal mono" aria-hidden="true">
+          <div class="term-head"><i></i><i></i><i></i><span>intake</span></div>
+          <pre data-i18n="ct.term">$ apex scope --chain evm --layer protocol,mobile
+✓ threat model drafted
+✓ engineer assigned
+✓ estimate in &lt; 24h ▍</pre>
+        </div>
+      </div>
+
+      <form class="form" id="contactForm" data-reveal data-delay="120" novalidate>
+        <div class="f-row">
+          <div class="f-group"><label for="contactName" data-i18n="f.name">Full Name *</label><input type="text" id="contactName" name="name" placeholder="Ada Nakamoto" autocomplete="name" required /></div>
+          <div class="f-group"><label for="contactEmail" data-i18n="f.email">Work Email *</label><input type="email" id="contactEmail" name="email" placeholder="ada@protocol.xyz" autocomplete="email" required /></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label for="contactCompany" data-i18n="f.company">Company / Protocol</label><input type="text" id="contactCompany" name="company" placeholder="Protocol Labs" autocomplete="organization" /></div>
+          <div class="f-group"><label for="contactService" data-i18n="f.service">Service Interested In *</label>
+            <select id="contactService" name="service" required>
+              <option value="" data-i18n="f.serviceSel">Select a service...</option>
+              <option value="decentralized-protocol" data-i18n="svc.1.t">Decentralized Protocol Engineering</option>
+              <option value="smart-contracts" data-i18n="svc.2.t">Smart Contracts & Audits</option>
+              <option value="defi" data-i18n="svc.3.t">DeFi & dApp Protocols</option>
+              <option value="native-mobile" data-i18n="svc.4.t">Native Mobile dApps</option>
+              <option value="wallet-custody" data-i18n="svc.5.t">Wallets & Custody</option>
+              <option value="tokenization" data-i18n="svc.6.t">Tokenization & RWA</option>
+              <option value="infrastructure" data-i18n="svc.7.t">Infrastructure & Indexing</option>
+              <option value="zk-l2" data-i18n="svc.8.t">ZK, L2 & Interoperability</option>
+              <option value="advisory" data-i18n="svc.9.t">Web3 Architecture & Advisory</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label for="contactChain" data-i18n="f.chain">Target Blockchain *</label>
+            <select id="contactChain" name="chain" required>
+              <option value="" data-i18n="f.chainSel">Select a chain...</option>
+              <option value="evm">Ethereum / EVM (Base, Arbitrum, etc.)</option>
+              <option value="solana">Solana</option>
+              <option value="l2-zk">L2 / ZK Rollup</option>
+              <option value="cross-chain" data-i18n="f.chainCross">Cross-chain</option>
+              <option value="undecided" data-i18n="f.chainUndecided">Not decided yet</option>
+            </select>
+          </div>
+          <div class="f-group"><label for="contactBudget" data-i18n="f.budget">Project Budget</label>
+            <select id="contactBudget" name="budget">
+              <option value="" data-i18n="f.budgetSel">Select a budget range...</option>
+              <option value="<15k" data-i18n="f.b1">Under $15,000 USD</option>
+              <option value="15-50k">$15,000 – $50,000 USD</option>
+              <option value="50-150k">$50,000 – $150,000 USD</option>
+              <option value="150k+">$150,000+ USD</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-group"><label for="contactMessage" data-i18n="f.msg">Tell Us About Your Project *</label><textarea id="contactMessage" name="message" rows="5" placeholder="Contracts involved, chains, platforms, existing product (if any), timeline..." data-i18n-attr="placeholder:f.msgPh" required></textarea></div>
+        <input type="text" id="contactCompanyHp" name="website_hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label class="f-consent" for="contactConsent"><input type="checkbox" id="contactConsent" name="consent" required /><span data-i18n="f.consent">I agree to be contacted by email about my request. *</span></label>
+        <button type="submit" class="btn btn-neon btn-lg btn-full" id="contactSubmit"><span id="submitText" data-i18n="f.submit">Request a Quote <i class="fas fa-paper-plane"></i></span><span id="submitLoader" style="display:none;" data-i18n="f.sending"><i class="fas fa-spinner fa-spin"></i> Sending...</span></button>
+        <div class="f-ok" id="formSuccess" role="status" data-i18n="f.ok"><i class="fas fa-check-circle"></i> Request received. An engineer will reply within one business day.</div>
+        <div class="f-err" id="formError" role="alert" data-i18n="f.err"><i class="fas fa-exclamation-circle"></i> Something went wrong. Please email <a href="mailto:hello@apexblock.tech">hello@apexblock.tech</a>.</div>
+      </form>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo"><img src="images/logo.svg" alt="Apex Block logo" width="40" height="40" /><span>Apex<b>Block</b></span></a>
+          <p data-i18n="ft.brand">Full-spectrum blockchain engineering studio. Specialty: everything decentralized.</p>
+          <div class="socials"><a href="https://github.com" aria-label="GitHub" rel="noopener" target="_blank"><i class="fab fa-github"></i></a><a href="https://x.com" aria-label="X" rel="noopener" target="_blank"><i class="fab fa-x-twitter"></i></a><a href="https://www.linkedin.com" aria-label="LinkedIn" rel="noopener" target="_blank"><i class="fab fa-linkedin-in"></i></a></div>
+        </div>
+        <div class="footer-col"><h4 class="mono" data-i18n="ft.services">SERVICES</h4><a href="#services" data-i18n="ft.s1">Decentralized Protocols</a><a href="#services" data-i18n="svc.2.t">Smart Contracts & Audits</a><a href="#services" data-i18n="ft.s3">DeFi & dApps</a><a href="#services" data-i18n="svc.4.t">Native Mobile dApps</a><a href="#services" data-i18n="svc.5.t">Wallets & Custody</a><a href="#services" data-i18n="svc.6.t">Tokenization & RWA</a></div>
+        <div class="footer-col"><h4 class="mono" data-i18n="ft.company">COMPANY</h4><a href="#edge" data-i18n="nav.edge">Our Edge</a><a href="#work" data-i18n="ft.cases">Case Studies</a><a href="#process" data-i18n="nav.process">Process</a><a href="#stack" data-i18n="nav.stack">Stack</a><a href="#contact" data-i18n="nav.contact">Contact</a></div>
+        <div class="footer-col"><h4 class="mono" data-i18n="ft.contact">CONTACT</h4><a href="mailto:hello@apexblock.tech"><i class="fas fa-envelope"></i> hello@apexblock.tech</a><span><i class="fas fa-globe"></i> apexblock.tech</span></div>
+      </div>
+      <div class="footer-bottom"><p data-i18n="ft.copy">&copy; 2026 Apex Block. All rights reserved. Built decentralized.</p><div><a href="#" data-i18n="ft.privacy">Privacy Policy</a><a href="#" data-i18n="ft.terms">Terms of Service</a></div></div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
